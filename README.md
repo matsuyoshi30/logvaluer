@@ -29,6 +29,25 @@ type Foo struct {
 Then, `go generate` creates a file which defines `LogValue` method for implementing `slog.LogValuer`.
 
 ```go
+func (f Foo) LogValue() slog.Value {
+	return slog.GroupValue(
+		slog.String("Str", f.Str),
+		slog.String("pstr", f.pstr),
+		slog.String("Passwd", "MASK"),
+		slog.Float64("Flo", f.Flo),
+		slog.Int("M", f.M),
+		slog.Int64("N", f.N),
+		slog.Any("L", f.L),
+		slog.Bool("Flag", f.Flag),
+		slog.Time("Date", f.Date),
+		slog.Duration("Dur", f.Dur),
+	)
+}
+```
+
+So you can pass the instance of this type to `slog` logging function.
+
+```go
 foo := Foo{
 	Str:    "hoge",
 	pstr:   "private",
