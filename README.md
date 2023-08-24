@@ -66,6 +66,7 @@ slog.Info("hello, world", "Foo", foo)
 
 ## TODO
 
+- Add test
 - Add support for type alias
 - Add support for select multiple types at once
 - Add support for exclude private struct field
