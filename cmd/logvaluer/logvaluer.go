@@ -140,7 +140,6 @@ func (g *Generator) generateForStruct(st *types.Struct) {
 			f.mask = true
 		}
 
-		fmt.Println(st.Field(i).Type().String())
 		switch st.Field(i).Type().String() {
 		case "bool":
 			f.typ = "Bool"
