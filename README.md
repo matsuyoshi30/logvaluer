@@ -74,3 +74,4 @@ slog.Info("hello, world", "Foo", foo)
 - Add support for type alias
 - Add support for select multiple types at once
 - Add support for exclude private struct field
+- Add support for embeded struct
