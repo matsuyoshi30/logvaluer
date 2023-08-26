@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-//go:generate go run ../../cmd/logvaluer/logvaluer.go -type=Foo
+//go:generate go run github.com/matsuyoshi30/logvaluer/cmd/logvaluer -type=Foo
 
 type Foo struct {
 	Str    string

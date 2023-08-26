@@ -6,8 +6,11 @@ The implementation heavily references the `fmt.Stringer` interface.
 
 ## Usage
 
+Execute `go get github.com/matsuyoshi30/logvaluer/cmd/logvaluer` and add `go:generate` comment. 
+
+
 ```go
-//go:generate go run ../../cmd/logvaluer/logvaluer.go -type=Foo
+//go:generate go run github.com/matsuyoshi30/logvaluer/cmd/logvaluer -type=Foo
 
 type Foo struct {
 	Str    string
@@ -26,7 +29,7 @@ type Foo struct {
 }
 ```
 
-Then, `go generate` creates a file which defines `LogValue` method for implementing `slog.LogValuer`.
+Then, execute `go generate` creates a file which defines `LogValue` method for implementing `slog.LogValuer`.
 
 ```go
 func (f Foo) LogValue() slog.Value {
