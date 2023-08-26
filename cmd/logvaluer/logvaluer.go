@@ -10,6 +10,7 @@ import (
 	"log"
 	"os"
 	"reflect"
+	"strconv"
 	"strings"
 
 	"golang.org/x/tools/go/packages"
@@ -136,7 +137,7 @@ func (g *Generator) generateForStruct(st *types.Struct) {
 		}
 
 		maskTag := reflect.StructTag(st.Tag(i)).Get("mask")
-		if maskTag == "true" {
+		if isTrue(maskTag) {
 			f.mask = true
 		}
 
@@ -189,4 +190,9 @@ func (g *Generator) format() []byte {
 		return g.buf.Bytes()
 	}
 	return src
+}
+
+func isTrue(s string) bool {
+	b, _ := strconv.ParseBool(s)
+	return b
 }
