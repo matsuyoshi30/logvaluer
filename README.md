@@ -13,10 +13,11 @@ Execute `go get github.com/matsuyoshi30/logvaluer/cmd/logvaluer` and add `go:gen
 //go:generate go run github.com/matsuyoshi30/logvaluer/cmd/logvaluer -type=Foo
 
 type Foo struct {
-	Str    string
-	pstr   string
-	Passwd string `mask:"true"`
-	Flo    float64
+	Str       string
+	pstr      string
+	IgnoreStr string `ignored:"true"`
+	Passwd    string `mask:"true"`
+	Flo       float64
 
 	M int
 	N int64

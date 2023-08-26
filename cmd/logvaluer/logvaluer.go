@@ -132,6 +132,11 @@ func (g *Generator) generate() {
 func (g *Generator) generateForStruct(st *types.Struct) {
 	var fields []field
 	for i := 0; i < st.NumFields(); i++ {
+		ignoredTag := reflect.StructTag(st.Tag(i)).Get("ignored")
+		if isTrue(ignoredTag) {
+			continue
+		}
+
 		f := field{
 			name: st.Field(i).Name(),
 		}
